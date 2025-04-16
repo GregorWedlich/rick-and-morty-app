@@ -26,6 +26,9 @@ async function fetchCharacters() {
     return data;
   } catch (error) {
     console.log(`Fetching error: ${error}`);
+    cardContainer.innerHTML =
+      '<p class="error-message">Could not load characters. Please try again later.</p>';
+
     return null;
   }
 }
@@ -42,12 +45,11 @@ async function renderCharacter() {
     return;
   }
 
-  const firstCharacter = characterData.results[0];
-  cardContainer.innerHTML = ""; // clear html
-
-  const cardElement = createCharacterCard(firstCharacter);
-
-  cardContainer.append(cardElement);
+  characterData.results.forEach((character) => {
+    // cardContainer.innerHTML = ""; // clear html
+    const cardElement = createCharacterCard(character);
+    cardContainer.append(cardElement);
+  });
 }
 
 renderCharacter();
