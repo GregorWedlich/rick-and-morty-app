@@ -1,7 +1,8 @@
 export function createCharacterCard(character) {
-  const listItem = document.createElement("li");
-  listItem.classList.add("card");
+  const listItem = document.createElement("li"); // Create a new list item
+  listItem.classList.add("card"); // Add the class "card" to the list item
 
+  // Set the inner HTML of the list item with the character data
   listItem.innerHTML = `
       <div class="card__image-container">
           <img
@@ -24,5 +25,5 @@ export function createCharacterCard(character) {
       </div>
     `;
 
-  return listItem;
+  return listItem; // Return the list item
 }
